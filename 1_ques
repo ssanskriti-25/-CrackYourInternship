@@ -1,0 +1,27 @@
+Question Link: https://leetcode.com/problems/set-matrix-zeroes/
+
+Solution:
+void setZeroes(vector<vector<int>>& mat) {
+        int n= mat.size(), m= mat[0].size();
+       for(int i=0;i<n;i++){
+           for(int j=0;j<m;j++){
+               if(mat[i][j]==0){
+                   int x= i, y=j;
+                   mat[i][j]=1e9;
+                   for(int k=0;k<m;k++){
+                       if(mat[x][k]!=0)
+                       mat[x][k]=1e9;
+                   }
+                    for(int k=0;k<n;k++){
+                        if(mat[k][y]!=0)
+                       mat[k][y]=1e9;
+                   }
+               }
+           }
+       }
+       for(int i=0;i<n;i++){
+           for(int j=0;j<m;j++){
+               if(mat[i][j]==1e9)
+               mat[i][j]=0;}
+       }
+    }
