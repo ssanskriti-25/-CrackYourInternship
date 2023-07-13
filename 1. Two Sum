@@ -1,0 +1,14 @@
+Question Link:  https://leetcode.com/problems/two-sum/
+Solution:
+ vector<int> twoSum(vector<int>& nums, int t) {
+        vector<int>v1;
+          for(int i=0;i<nums.size()-1;i++){
+              auto it= find(nums.begin()+i+1,nums.end(),(t-nums[i]));
+              if(it!=nums.end()){
+                  v1.push_back(i);
+                  v1.push_back( it - nums.begin());
+                  return v1;
+              }
+          }
+          return v1;
+    }
