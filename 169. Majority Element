@@ -1,0 +1,14 @@
+Question Link:  https://leetcode.com/problems/majority-element/
+Solution:
+int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+        }
+        vector<pair<int,int>>v;
+        for(auto i:mp)
+            v.push_back({i.second, i.first});
+        sort(v.begin(),v.end(),greater<pair<int,int>>());
+        return v[0].second;
+    }
