@@ -1,0 +1,16 @@
+Question Link:  https://leetcode.com/problems/merge-sorted-array/
+Solution:
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>v1;
+        for(int i=0;i<nums1.size();i++){
+            if(nums1[i]==0 && i>=m)
+                continue;
+            else
+            v1.push_back(nums1[i]);
+        }
+        for(int i=0;i<nums2.size();i++){
+            v1.push_back(nums2[i]);
+        }
+        sort(v1.begin(),v1.end());
+        nums1=v1;
+    }
