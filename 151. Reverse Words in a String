@@ -1,0 +1,30 @@
+Question Link:  https://leetcode.com/problems/reverse-words-in-a-string/
+Solution:
+string reverseWords(string s) {
+        vector<string>v1,v2;
+        for(int i=0;i<s.size();i++){
+            string ans="";
+            bool flag= false;
+            while(s[i]!=' ' and i<s.size()){
+                ans+= s[i];
+                i++;
+                flag= true;
+            }
+            if(flag=true)
+            v1.push_back(ans);
+        }
+        reverse(v1.begin(),v1.end());
+        for(int i=0;i<v1.size();i++){
+            if(v1[i]!=""){
+                 v2.push_back(v1[i]);
+            }
+        }
+        string tmp="";
+        for(int i=0;i<v2.size();i++){
+            tmp+= v2[i];
+            if(i!=v2.size()-1){
+                tmp+= " ";
+            }
+        }
+        return tmp;
+    }
