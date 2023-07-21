@@ -1,0 +1,14 @@
+Question Link:  https://leetcode.com/problems/longest-common-prefix/description/
+Solution:
+string longestCommonPrefix(vector<string>& str) {
+        sort(str.begin(),str.end());
+        int i=0,j=0,n=str.size();
+        string ans="";
+        while(i<str[0].size() and j<str[n-1].size()){
+            if(str[0][i]!=str[n-1][i]) break;
+            ans+= str[0][i];
+            i++;
+            j++;
+        }
+        return ans;
+    }
