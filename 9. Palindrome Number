@@ -1,0 +1,16 @@
+Question Link:  https://leetcode.com/problems/palindrome-number/
+Solution:
+bool isPalindrome(int x) {
+        int n=x;
+        if(x<0)   return false;
+        string s;
+       while(n){
+           int a=n%10;
+           s+=char(a);
+           n=n/10;
+       } 
+        string s1=s;
+        reverse(s.begin(),s.end());
+        if(s1==s)   return true;
+        else    return false;
+    }
