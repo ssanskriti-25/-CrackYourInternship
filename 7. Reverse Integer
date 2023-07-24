@@ -1,0 +1,16 @@
+Question Link:  https://leetcode.com/problems/reverse-integer/
+Solution:
+int reverse(int x) {
+       if(x>INT_MAX/10 || x<INT_MIN/10)
+           return 0;
+        string s= to_string(x), tmp="";
+        int n= s.size();
+        while(n--){
+            tmp+=s[n];
+        }
+        if(x<0){
+            tmp.erase(tmp.size()-1,1);
+            tmp= "-"+tmp;
+        }
+        return stoll(tmp);
+    }
