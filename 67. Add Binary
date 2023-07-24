@@ -1,0 +1,28 @@
+Question Link:  https://leetcode.com/problems/add-binary/
+Solution:
+string addBinary(string num1, string num2) {
+        reverse(num1.begin(),num1.end());
+        reverse(num2.begin(),num2.end());
+      int n1= num1.size(), n2= num2.size();
+        if(n1<n2){
+            for(int i=0;i<(n2-n1);i++){
+                num1+="0";
+            }
+        }
+        else{
+            for(int i=0;i<(n1-n2);i++){
+                num2+="0";
+            }
+        }
+        string ans="";
+        int c=0;
+        for(int i=0;i<num1.size();i++){
+            int x = (num1[i]-'0')+(num2[i]-'0')+ c; 
+            c= x/2;
+            ans+= to_string(x%2);
+        }
+        if(c!=0)
+            ans+="1";
+        reverse(ans.begin(), ans.end()); 
+        return ans;
+    }
