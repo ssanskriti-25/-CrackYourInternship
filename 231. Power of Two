@@ -1,0 +1,14 @@
+Question Link:  https://leetcode.com/problems/power-of-two/
+Solution:
+bool isPowerOfTwo(int n) {
+        int res=0;
+        while(n>0){
+            if(n%2!=0)
+                res++;
+            n=n/2;
+        }
+        if(res==1)
+            return true;
+        else
+            return false;
+    }
