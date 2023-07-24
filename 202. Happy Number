@@ -1,0 +1,19 @@
+Question Link:  https://leetcode.com/problems/happy-number/
+Solution:
+bool isHappy(int n) {
+        map<int, bool>flag;
+        while(true){
+            int sum=0;
+        while(n){
+            int a= n%10;
+            sum+= a*a;
+            n= n/10;
+        }
+        if(sum==1)
+            return true;
+            if(flag[sum]==true)   return false;
+            n=sum;
+            flag[sum]=true;
+        }
+        return false;
+    }
