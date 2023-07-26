@@ -1,0 +1,24 @@
+Question Link:  https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+Solution:
+ListNode *reverse(ListNode* curr){
+        ListNode *nxt;
+         ListNode *prev= NULL;
+        while(curr){
+            nxt= curr->next;
+            curr->next= prev;
+            prev= curr;
+            curr= nxt;
+        }
+        return prev;
+    }
+    int getDecimalValue(ListNode* head) {
+        ListNode *curr1= reverse(head);
+        int i=0,sum=0;
+        while(curr1){
+            int x= curr1->val;
+            sum+= (x*pow(2,i));
+            i++;
+            curr1= curr1->next;
+        }
+        return sum;
+    }
