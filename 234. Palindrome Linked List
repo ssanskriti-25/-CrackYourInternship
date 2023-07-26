@@ -1,0 +1,16 @@
+Question Link:  https://leetcode.com/problems/palindrome-linked-list/
+Solution:
+bool isPalindrome(ListNode* head) {
+        ListNode *curr = head;
+        vector<int>v1;
+        while(curr){
+            v1.push_back(curr->val);
+            curr= curr->next;
+        }
+        vector<int>v2= v1;
+            reverse(v1.begin(),v1.end());
+        if(v1==v2)
+            return 1;
+        else 
+            return 0;
+    }
