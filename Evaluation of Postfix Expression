@@ -1,0 +1,47 @@
+Question Link:  https://practice.geeksforgeeks.org/problems/evaluation-of-postfix-expression1735/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
+Solution:
+int evaluatePostfix(string s)
+    {
+        // Your code here
+        stack<int>st;
+        int ans=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='*'){
+                int a= st.top();
+                st.pop();
+                int b= st.top();
+                st.pop();
+                ans= b*a;
+                st.push(ans);
+            }
+            else if(s[i]=='/'){
+                int a= st.top();
+                st.pop();
+                int b= st.top();
+                st.pop();
+                if(a!=0)
+                ans= b/a;
+                st.push(ans);
+            }
+            else if(s[i]=='+'){
+                int a= st.top();
+                st.pop();
+                int b= st.top();
+                st.pop();
+                ans= b+a;
+                st.push(ans);
+            }
+            else if(s[i]=='-'){
+                int a= st.top();
+                st.pop();
+                int b= st.top();
+                st.pop();
+                ans= b-a;
+                st.push(ans);
+            }
+            else{
+                st.push(s[i]-'0');
+            }
+        }
+        return ans;
+    }
