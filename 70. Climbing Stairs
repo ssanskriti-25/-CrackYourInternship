@@ -1,0 +1,16 @@
+Question Link:  https://leetcode.com/problems/climbing-stairs/
+Solution:
+int solve(int n, int memo[]){
+        if(n<=1)
+            return 1;
+        if(memo[n] > 0) return memo[n];
+        int x= solve(n-1,memo);
+        int y= solve(n-2,memo);
+        memo[n]= x+y;
+        return x+y;
+    }
+    int climbStairs(int n){
+        int memo[n+1];
+      int ans= solve(n,memo);
+        return ans;
+    }
