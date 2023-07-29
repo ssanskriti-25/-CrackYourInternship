@@ -1,0 +1,14 @@
+Question Link:  https://leetcode.com/problems/subtree-of-another-tree/description/
+Solution:
+bool isMatch(TreeNode* root1, TreeNode* root2){
+    if(root1==NULL and root2==NULL)  return true;
+    if(root1==NULL || root2==NULL)  return false;
+    
+    if(root1->val != root2->val)  return false;
+    return isMatch(root1->left, root2->left) and isMatch(root1->right, root2->right);
+}
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if(subRoot==NULL)  return true;
+        if(root==NULL)  return false;
+        return isMatch(root,subRoot) || isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
+    }
