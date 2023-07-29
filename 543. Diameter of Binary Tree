@@ -1,0 +1,15 @@
+Question Link:  https://leetcode.com/problems/diameter-of-binary-tree/description/
+Solution:
+int solve(TreeNode* root, int& ans){
+    if(root==NULL)  return 0;
+    int left_height = solve(root->left,ans);
+    int right_height = solve(root->right,ans);
+    ans= max(ans,left_height+right_height);
+    return 1+max(left_height,right_height);
+}
+    int diameterOfBinaryTree(TreeNode* root) {
+       if(root==NULL)  return 0;
+       int ans=0;
+       int tmp = solve(root, ans);
+       return ans;
+    }
