@@ -1,0 +1,37 @@
+Question Link:  https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/description/
+Solution:
+map<int,int>mp;
+vector<int>v1;
+
+    RandomizedCollection() {
+        
+    }
+    
+    bool insert(int val) {
+       if(mp[val]==0){
+           v1.push_back(val);
+           mp[val]++;
+           return true;
+       }
+       else if(mp[val]>0){
+           v1.push_back(val);
+           mp[val]++;
+           return false;
+       }
+       return false;
+    }
+    
+    bool remove(int val) {
+        if(mp[val]>0){
+            auto it= find(v1.begin(),v1.end(),val);
+            v1.erase(it);
+            mp[val]--;
+            return true;
+        }
+        return false;
+    }
+    
+    int getRandom() {
+        int random = rand() % v1.size();
+        return v1[random];
+    }
