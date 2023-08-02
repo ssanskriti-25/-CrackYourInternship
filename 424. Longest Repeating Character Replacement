@@ -1,0 +1,23 @@
+Question Link:  https://leetcode.com/problems/longest-repeating-character-replacement/
+Solution:
+int characterReplacement(string s, int k) {
+       int start=0, end=0,ans=1;
+       map<char,int>mp;
+       while(end<s.size()){
+          mp[s[end]]++;
+          int len= end-start+1;
+          int freq;
+          for(auto it= mp.begin();it!=mp.end();it++){
+                  freq= max(freq,it->second);
+          }
+          if(len-freq<=k){
+              ans= max(ans,len);
+          }
+          else{
+              mp[s[start]]--;
+              start++;
+          }
+          end++;
+       }
+       return ans;
+    }
