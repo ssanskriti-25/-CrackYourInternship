@@ -1,0 +1,38 @@
+Question Link:  https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
+Solution:
+void dfs(int row, int col, vector<vector<int>>& vis, vector<vector<char>>& grid){
+      vis[row][col]=1;
+      int n= grid.size(), m= grid[0].size();
+      stack<pair<int,int>>st;
+      st.push({row,col});
+      while(st.empty()==false){
+          int r1= st.top().first;
+          int c1= st.top().second;
+          st.pop();
+          for(int r=-1;r<=1;r++){
+              for(int c=-1;c<=1;c++){
+                  int nrow= r1+r;
+                  int ncol= c1+c;
+                  if(nrow>=0 and nrow<n and ncol>=0 and ncol<m and vis[nrow][ncol]==0 and grid[nrow][ncol]=='1'){
+                      st.push({nrow,ncol});
+                      vis[nrow][ncol]=1;
+                  }
+              }
+          }
+      }
+  }
+    // Function to find the number of islands.
+    int numIslands(vector<vector<char>>& grid) {
+        int cnt=0;
+        int n= grid.size(), m= grid[0].size();
+        vector<vector<int>>vis(n, vector<int>(m,0));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(vis[i][j]==0 and grid[i][j]=='1'){
+                    cnt++;
+                    dfs(i,j,vis,grid);
+                }
+            }
+        }
+        return cnt;
+    }
