@@ -1,0 +1,13 @@
+Question Link:  https://leetcode.com/problems/the-kth-factor-of-n/
+Solution:
+int kthFactor(int n, int k) {
+        vector<int>v1;
+        for(int i=1;i<=n;i++){
+            if(n%i==0)
+            v1.push_back(i);
+        }
+        if(v1.size()>=k)
+        return v1[k-1];
+        else
+        return -1;
+    }
